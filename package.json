@@ -1,0 +1,23 @@
+{
+  "name": "lab6",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/christiangt03/lab6#readme",
+  "bugs": {
+    "url": "https://github.com/christiangt03/lab6/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christiangt03/lab6.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@actions/core": "^3.0.1"
+  }
+}
