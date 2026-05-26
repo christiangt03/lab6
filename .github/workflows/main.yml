@@ -1,0 +1,21 @@
+# .github/workflows/main.yml
+name: Test Custom Action Pipeline
+on: [push, workflow_dispatch]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Normalizador de Tags
+        id: procesador
+        uses: ./
+        with:
+          # CAMBIAR: Modifica este string para probar la acción
+          input_tag: '  release-backend-v3  '
+
+      - name: Consumir Output
+        run: |
+          echo "El tag normalizado es: ${{ steps.procesador.outputs.normalized_tag }}"

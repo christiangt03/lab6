@@ -1,0 +1,13 @@
+# action.yml
+name: 'Normalizador de Tags'
+description: 'Recibe un tag sucio, lo limpia y lo devuelve en mayúsculas listo para despliegues.'
+inputs:
+  input_tag:
+    description: 'Tag a normalizar (ej. branch name)'
+    required: true
+outputs:
+  normalized_tag:
+    description: 'Tag limpio y normalizado'
+runs:
+  using: 'node20'
+  main: 'index.js'
