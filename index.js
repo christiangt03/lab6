@@ -1,18 +1,18 @@
-// index.js
+// index.js (Actualizado)
 const core = require('@actions/core');
 
 try {
-  // Leer input del workflow
-  // CAMBIAR: El nombre del input si se modifica en el action.yml
   const inputTag = core.getInput('input_tag');
 
-  // Procesar información: quitar espacios y pasar a mayúsculas
-  const normalizedTag = inputTag.trim().toUpperCase();
+  // Control de valores vacíos e inválidos
+  if (!inputTag || inputTag.trim() === '') {
+    throw new Error('Robustez fallida: El input_tag proporcionado está vacío o es inválido.');
+  }
 
-  // Devolver resultados estructurados
+  const normalizedTag = inputTag.trim().toUpperCase();
   core.setOutput('normalized_tag', normalizedTag);
-  console.log(`Tag procesado con éxito: ${normalizedTag}`);
 
 } catch (error) {
+  // Manejo de errores controlados (falla la pipeline limpiamente)
   core.setFailed(error.message);
 }
